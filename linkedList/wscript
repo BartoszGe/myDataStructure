@@ -1,0 +1,4 @@
+#!/usr/bin/env python
+
+def build(bld):
+    bld.program(source="src/main.c", target="main", includes=["include"])
