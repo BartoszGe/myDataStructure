@@ -1,4 +1,16 @@
 #!/usr/bin/env python
 
+def options(opt):
+    pass
+
+def configure(conf):
+ 	pass
+
 def build(bld):
-    bld.program(source="src/main.cpp", target="main", includes=["include"])
+	src = bld.path.ant_glob( 'src/*.cpp' )
+	bld.program(
+            features='objcopy',
+            target='linkedlist',
+            source=src,
+            includes=[ 'include' ],
+            )

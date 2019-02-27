@@ -1,69 +1,66 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
+#include <iostream>
 
-struct node
-{
-	int data;
-    struct node *next;
-};
+#include "LinkedList.h"
+//#include "Iterator.h"
 
-struct node *head = NULL;
+//struct node
+//{
+	//int data;
+    //struct node *next;
+//};
 
-bool const empty(void) 
-{
-    if(head == NULL)
-        return true;
+//struct node *head = NULL;
 
-    return false;
-}
+//bool const empty(void) 
+//{
+    //if(head == NULL)
+        //return true;
 
-size_t const size(void) 
-{
-    if(empty())
-        return 0;
+    //return false;
+//}
 
-    size_t size = 1;
+//size_t const size(void) 
+//{
+    //if(empty())
+        //return 0;
 
-    for(; head->next!=NULL; ++size);
+    //size_t size = 1;
 
-    return size;
-}
+    //for(; head->next!=NULL; ++size);
 
-struct node* front_node(void)
-{
-    struct node tempNode = head;
-    (; tempNode->next==NULL; tempNode->)
-} 
+    //return size;
+//}
 
-void push_front(const int data)
-{
-    struct node *newNode = malloc(sizeof(struct node));
+//struct node* front_node(void)
+//{
+    //struct node tempNode = head;
+    //(; tempNode->next==NULL; tempNode->)
+//} 
+
+//void push_front(const int data)
+//{
+    //struct node *newNode = malloc(sizeof(struct node));
     
-    if(newNode == NULL) {
-        fprintf(stderr, "malloc in create failed\n");
-        exit(-1);
-    }
+    //if(newNode == NULL) {
+        //fprintf(stderr, "malloc in create failed\n");
+        //exit(-1);
+    //}
     
-    newNode->data = data;
-    printf("newNode->data: %d\n", newNode->data);
+    //newNode->data = data;
+    //printf("newNode->data: %d\n", newNode->data);
  
-    if(empty()) {
-        head = newNode;   
-        return;
-    }
+    //if(empty()) {
+        //head = newNode;   
+        //return;
+    //}
     
-    head->next = newNode;
-    return;
-}
+    //head->next = newNode;
+    //return;
+//}
 
 int main(void)
 {
-    printf("size: %zu\n",size());
-    push_front(1);
-    printf("size: %zu\n",size());
-    push_front(1);
-    printf("size: %zu\n",size());
-    push_front(1);
-    printf("size: %zu\n",size());
+    LinkedList linkedList;
+    std::cout << "cos";
+    return 1;
 }

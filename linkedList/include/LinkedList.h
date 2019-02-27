@@ -1,6 +1,8 @@
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
 
+#include "Iterator.h"
+
 class LinkedList
 {
 
@@ -14,14 +16,13 @@ class LinkedList
 
         struct node *head = NULL;
        
-        Iterator iterator;
+        //Iterator iterator;
 
-    public:
-        
+    public:       
 
 //      Element access
         int front();
-        int back() {return head->data};
+        int back() {return head->data;}
         
 //      Iterators
         int begin();
@@ -40,6 +41,6 @@ class LinkedList
 
 
 
-}
+};
 
 #endif

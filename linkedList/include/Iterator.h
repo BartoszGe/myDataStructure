@@ -1,14 +1,15 @@
 #ifndef ITERATOR_H
 #define ITERATOR_H
 
+#include "LinkedList.h"
+
 class Iterator
 {
     
     public:
-        Iterator(LinkedList linkedList);
         Iterator();
-    Iterator begin();
-    Iterator end(); 
-}
+        Iterator begin();
+        Iterator end(); 
+};
 
 #endif
