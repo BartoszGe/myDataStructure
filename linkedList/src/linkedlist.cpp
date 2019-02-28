@@ -1,4 +1,4 @@
-#include "LinkedList.h"
+#include "linkedlist.h"
 
 //LinkedList::LinkedList();
 
@@ -11,8 +11,8 @@
 //Element acces
 //int LinkedList::front()
 //{
-    //Iterator iterator = head;
-    //return iterator.end()->data;
+//    Iterator iterator = head;
+//    return iterator.end();
 //}
 
 //int LinkedList::back()
@@ -29,19 +29,19 @@
     //return iterator.begin()
 //}
 
-//Iterator LinkedList::end()
-//{
-    //Iterator iterator = head;
-    //return iterator.end();
-//}
+Iterator LinkedList::end()
+{
+    Iterator iterator = head;
+    return iterator.end();
+}
 
-//bool const empty()  
-//{ 
-    //if(head == nullptr) 
-        //return true; 
+bool const LinkedList::empty()  
+{ 
+    if(head == nullptr) 
+       return true; 
  
-    //return false; 
-//} 
+    return false; 
+} 
 
 //size_t const size() 
 //{
@@ -50,16 +50,16 @@
     //return size;
 //}
 
-//void LinkedList::push_back(const int data)
-//{
-    //struct node *newNode = new struct node
-    //if(empty()) {
-        //head = newNode;
-        //return;
-    //}
+void LinkedList::push_back(const int data)
+{
+    Node *newNode = new Node;
+    newNode->data = data;
+    if(empty()) {
+        head = newNode;
+        return;
+    }
 
-    //newNode->data = data;
-//}
+}
 
 //void LinkedList::push_front(const int data)
 //{

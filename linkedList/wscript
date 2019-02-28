@@ -9,7 +9,6 @@ def configure(conf):
 def build(bld):
 	src = bld.path.ant_glob( 'src/*.cpp' )
 	bld.program(
-            features='objcopy',
             target='linkedlist',
             source=src,
             includes=[ 'include' ],
