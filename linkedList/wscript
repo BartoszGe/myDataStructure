@@ -4,12 +4,15 @@ def options(opt):
     pass
 
 def configure(conf):
- 	pass
+    pass
 
 def build(bld):
-	src = bld.path.ant_glob( 'src/*.cpp' )
-	bld.program(
-            target='linkedlist',
-            source=src,
-            includes=[ 'include' ],
-            )
+    src = bld.path.ant_glob( 'src/*.cpp' )
+    bld.program(
+        target='linkedlist',
+        source=src,
+        includes=[ 'include' ],
+        )
+
+    bld.recurse('test')
+

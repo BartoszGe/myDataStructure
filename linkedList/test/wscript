@@ -1,0 +1,11 @@
+#! /usr/bin/env python
+# encoding: utf-8
+
+def build(bld):
+    src = bld.path.ant_glob( 'src/*.cpp' )
+
+    bld.program(
+        source=['gtest_tests.cpp'] + src,
+        target='gtest_tests',
+        use=['gtest'])
+                      
