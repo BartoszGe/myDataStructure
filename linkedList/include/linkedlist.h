@@ -13,13 +13,14 @@ class LinkedList
 {  
     private:
         Node *head = nullptr;
-      
+        Iterator iterator;
+
     public:
-       //LinkedList();
+        //LinkedList(){iterator = Iterator(head)};
 
        ///Element access
         int front();
-        //int back() {return head->data;}
+        int back() {return head->data;}
                 
         ////Iterators
         //Iterator begin();
@@ -32,6 +33,9 @@ class LinkedList
         ////Modifiers               
         void push_back(const int);
         //void push_front(const int);
+        
+        
+        
 };
 
 #endif

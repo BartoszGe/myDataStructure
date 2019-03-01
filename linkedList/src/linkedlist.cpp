@@ -9,17 +9,11 @@
 //} 
 
 //Element acces
-//int LinkedList::front()
-//{
-//    Iterator iterator = head;
-//    return iterator.end();
-//}
-
-//int LinkedList::back()
-//{
-    //Iterator iterator = head;
-    //return iterator.begin()->data;
-//}
+int LinkedList::front()
+{
+    iterator = head;
+    return *iterator.end();
+}
 
 ////Iterators
 
@@ -31,7 +25,7 @@
 
 Iterator LinkedList::end()
 {
-    Iterator iterator = head;
+    iterator = head;
     return iterator.end();
 }
 
@@ -58,6 +52,10 @@ void LinkedList::push_back(const int data)
         head = newNode;
         return;
     }
+    Node *lastNode = head;
+    for(; lastNode->next!=nullptr ; lastNode++);
+    
+    lastNode->next = newNode;
 
 }
 

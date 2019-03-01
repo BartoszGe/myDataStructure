@@ -1,10 +1,23 @@
 #include <iostream>
 #include "iterator.h"
 
-Iterator Iterator::end()
+
+Iterator Iterator::begin()
 {
-	std::cout << "test of iterator" << iterator->data<< "\n" ;
-	testData = 10;
-	return *this;
+    if(iterator != head) 
+        iterator = head;
+
+    return *this;
+}
+
+Iterator Iterator::end()
+{ 
+    if(iterator == nullptr)
+        iterator = head;
+
+    for(; iterator->next!=nullptr; iterator++)
+        std::cout<<"test end()"<<iterator->data<<std::endl;
+	
+    return *this;
 }
 

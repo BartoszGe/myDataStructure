@@ -4,7 +4,9 @@
 struct Node
 {
     int data;
-    struct node *next;
+    struct Node *next;
+
+    void operator++() {*this=*this->next;}
 };
 
 
