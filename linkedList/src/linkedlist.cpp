@@ -11,7 +11,6 @@
 //Element acces
 int LinkedList::front()
 {
-    iterator = head;
     return *iterator.end();
 }
 
@@ -25,7 +24,6 @@ int LinkedList::front()
 
 Iterator LinkedList::end()
 {
-    iterator = head;
     return iterator.end();
 }
 
@@ -44,19 +42,24 @@ bool const LinkedList::empty()
     //return size;
 //}
 
+void LinkedList::createFirstNode(Node *newNode)
+{
+    head = newNode;
+    iterator = head;
+}
+
 void LinkedList::push_back(const int data)
 {
     Node *newNode = new Node;
     newNode->data = data;
     if(empty()) {
-        head = newNode;
+        createFirstNode(newNode);
         return;
     }
     Node *lastNode = head;
     for(; lastNode->next!=nullptr ; lastNode++);
     
     lastNode->next = newNode;
-
 }
 
 //void LinkedList::push_front(const int data)

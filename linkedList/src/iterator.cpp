@@ -15,8 +15,8 @@ Iterator Iterator::end()
     if(iterator == nullptr)
         iterator = head;
 
-    for(; iterator->next!=nullptr; iterator++)
-        std::cout<<"test end()"<<iterator->data<<std::endl;
+    for(; iterator->next!=nullptr; iterator++);
+        //std::cout<<"test end()"<<iterator->data<<std::endl;
 	
     return *this;
 }

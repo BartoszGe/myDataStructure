@@ -9,13 +9,14 @@ class Iterator
         const Node *head;
         const Node *iterator;
 
-    public:
-        Iterator(const Node *head): head(head) {iterator = head;}
+    public: 
+        Iterator() : head(nullptr), iterator(nullptr) {};
+        //Iterator(const Node *head): head(head) {iterator = head;}
        
         Iterator begin();
         Iterator end();
         
-        Node operator=(const Node *node) {iterator = node;}
+        Node operator=(const Node *node) {head = node; iterator = head;}
         int operator*() {return iterator->data;}
         void operator++() {iterator = iterator->next;}
 };

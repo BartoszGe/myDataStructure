@@ -15,10 +15,10 @@ class LinkedList
         Node *head = nullptr;
         Iterator iterator;
 
+        void createFirstNode(Node *newNode);
     public:
-        //LinkedList(){iterator = Iterator(head)};
-
-       ///Element access
+        LinkedList() {}
+       ///Element acces
         int front();
         int back() {return head->data;}
                 
