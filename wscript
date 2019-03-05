@@ -8,13 +8,21 @@ top = '.'
 out = 'build'
 
 def options(opt):
-    opt.load('compiler_cxx')
+    opt.load('compiler_cxx' )
 
-def configure(cfg):
-    cfg.load('compiler_cxx')
+def configure(conf):
+    conf.load('compiler_cxx')
+    conf.check_cxx(lib='pthread')
 
 def build(bld):
+    bld.stlib(
+        features='cxx',
+        source=['gtest/src/gtest-all.cc'],
+        target='gtest',
+        includes=['gtest/include', 'gtest'],
+        export_includes=['gtest/include'],
+        use=['PTHREAD'])
+
     bld.recurse('linkedList')
-   
-    
-    
+
+
