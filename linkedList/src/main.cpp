@@ -16,13 +16,16 @@ int main(void)
     std::cout <<"back test2: \n"<< linkedList.back()<<std::endl;
     std::cout <<"front test2: \n"<< linkedList.front()<<std::endl<<std::endl;
     std::cout <<"size:\n"<<linkedList.size()<<std::endl<<std::endl;
+    linkedList.push_front(333);
     linkedList.push_back(33);
     std::cout <<"back test3: \n"<< linkedList.back()<<std::endl;
     std::cout <<"front test3: \n"<< linkedList.front()<<std::endl<<std::endl;
-    std::cout <<"size:\n"<<linkedList.size()<<std::endl<<std::endl;
-    //linkedList.push_back(3);
-    //std::cout << linkedList.back();
-    //std::cout << linkedList.front();
+    std::cout <<"size:"<<linkedList.size()<<std::endl<<std::endl;
+    linkedList.push_back(44);
+    linkedList.push_front(444);
+    std::cout <<"back test4: \n"<< linkedList.back()<<std::endl;
+    std::cout <<"front test4: \n"<< linkedList.front()<<std::endl<<std::endl;
+    std::cout <<"size:"<<linkedList.size()<<std::endl<<std::endl;
 
     return 1;
 }
