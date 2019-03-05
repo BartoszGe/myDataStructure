@@ -28,11 +28,11 @@ class LinkedList
         
         ////Capacity
         bool const empty();
-        //size_t size();       
+        size_t size();       
         
         ////Modifiers               
         void push_back(const int);
-        //void push_front(const int);
+        void push_front(const int);
         
         
         
