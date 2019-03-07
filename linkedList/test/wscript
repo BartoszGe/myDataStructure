@@ -7,5 +7,6 @@ def build(bld):
     bld.program(
         source=['gtest_tests.cpp'] + src,
         target='gtest_tests',
-        use=['gtest'])
+        use=['gtest', 'linkedlist']
+        )
                       
