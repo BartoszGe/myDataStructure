@@ -2,7 +2,6 @@
 #define LINKEDLIST_H
 
 #include <cstddef>
-#include <iostream>
 
 #include "node.h"
 #include "iterator.h"
@@ -18,23 +17,24 @@ class LinkedList
         void createFirstNode(Node *newNode);
     public:
         LinkedList() {}
-
+        ~LinkedList() {while(head != nullptr) pop_back();}
         //Element acces
         int front() {return *iterator.end(); }
         int back() {return *iterator.begin(); }
-        //int back() {return head->data; }        
 
         //Iterators
         Iterator begin() {return iterator.begin();}
         Iterator end() {return iterator.end();}
         
         //Capacity
-        bool const empty();
+        bool const empty() {return ((head==nullptr) ?true :false);}
         size_t size();       
         
         //Modifiers               
         void push_back(const int);
+        void pop_back();
         void push_front(const int);
+        void pop_front();
 };
 
 #endif

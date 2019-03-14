@@ -45,5 +45,4 @@ TEST(operatorTest, iterator)
     head->next = newNode;
     ++iterator;
     EXPECT_EQ(*iterator.begin(), 2);
-
 }
