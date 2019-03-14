@@ -18,21 +18,43 @@
 
 TEST(push_backTest, list)
 {
-    LinkedList stdList;
-    stdList.push_back(1);
-    stdList.push_back(2);
-    stdList.push_back(3);
-    stdList.push_back(4);
-    stdList.push_back(5);
+    LinkedList myList;
+    myList.push_back(1);
+    myList.push_back(2);
+    myList.push_back(3);
+    myList.push_back(4);
+    myList.push_back(5);
 
-    EXPECT_EQ(5, stdList.size());
-    EXPECT_EQ(5, stdList.back());
-    EXPECT_EQ(1, stdList.front());
+    EXPECT_EQ(5, myList.size());
+    EXPECT_EQ(5, myList.back());
+    EXPECT_EQ(1, myList.front());
 
-    stdList.push_back(6);
+    myList.push_back(6);
 
-    EXPECT_EQ(6, stdList.size());
-    EXPECT_EQ(6, stdList.back());
-    EXPECT_EQ(1, stdList.front());
+    EXPECT_EQ(6, myList.size());
+    EXPECT_EQ(6, myList.back());
+    EXPECT_EQ(1, myList.front());
+}
+
+
+
+TEST(push_frontTest, list)
+{
+    LinkedList myList;
+    myList.push_front(1);
+    myList.push_front(2);
+    myList.push_front(3);
+    myList.push_front(4);
+    myList.push_front(5);
+
+    EXPECT_EQ(5, myList.size());
+    EXPECT_EQ(1, myList.back());
+    EXPECT_EQ(5, myList.front());
+
+    myList.push_front(6);
+
+    EXPECT_EQ(6, myList.size());
+    EXPECT_EQ(1, myList.back());
+    EXPECT_EQ(6, myList.front());
 }
 

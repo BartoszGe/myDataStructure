@@ -82,8 +82,7 @@ void LinkedList::push_front(const int data)
     }
     
     Node *lastNode = head;
-    for(; lastNode->next!=nullptr ; lastNode=lastNode->next)
-        std::cout<<"for: "<<lastNode->data<<std::endl;
+    for(; lastNode->next!=nullptr ; lastNode=lastNode->next);
 
     lastNode->next = newNode;
 }
