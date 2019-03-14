@@ -18,24 +18,23 @@ class LinkedList
         void createFirstNode(Node *newNode);
     public:
         LinkedList() {}
-       ///Element acces
-        int front();
-        int back() {return head->data;}
-                
-        ////Iterators
-        //Iterator begin();
-        Iterator end();
+
+        //Element acces
+        int front() {return *iterator.end(); }
+        int back() {return *iterator.begin(); }
+        //int back() {return head->data; }        
+
+        //Iterators
+        Iterator begin() {return iterator.begin();}
+        Iterator end() {return iterator.end();}
         
-        ////Capacity
+        //Capacity
         bool const empty();
         size_t size();       
         
-        ////Modifiers               
+        //Modifiers               
         void push_back(const int);
         void push_front(const int);
-        
-        
-        
 };
 
 #endif

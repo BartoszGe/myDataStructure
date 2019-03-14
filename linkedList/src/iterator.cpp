@@ -4,17 +4,15 @@
 
 Iterator Iterator::begin()
 {
-    iterator = head;
+    //std::cout << "iterator::begin(): " << iterator->data << std::endl;
     return *this;
 }
 
 Iterator Iterator::end()
 { 
-    iterator = head;
-
-    for(; iterator->next!=nullptr; iterator++);
-        //std::cout<<"test end()"<<iterator->data<<std::endl;
-	
+    for(; iterator->next!=nullptr; iterator=iterator->next);
+ 
+    //std::cout << "iterator::end(): " << iterator->data << std::endl;
     return *this;
 }
 

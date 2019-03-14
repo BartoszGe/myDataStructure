@@ -5,8 +5,6 @@ struct Node
 {
     int data;
     struct Node *next;
-
-    void operator++() {*this=*this->next;}
 };
 
 
