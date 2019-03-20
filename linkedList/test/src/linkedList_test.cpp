@@ -3,6 +3,14 @@
 #include <cstdint>
 #include "linkedlist.h"
 
+
+TEST(constructor, list)
+{
+    LinkedList myList(3, 4, 0, 6);
+    EXPECT_EQ(3, myList.back());
+    EXPECT_EQ(6, myList.front());
+}
+
 TEST(push_backTest, list)
 {
     LinkedList myList;

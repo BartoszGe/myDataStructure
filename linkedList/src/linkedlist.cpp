@@ -1,6 +1,18 @@
 #include "linkedlist.h"
 #include <iostream>
 
+LinkedList::LinkedList(int args, ...)
+{
+     va_list ap;
+     va_start(ap, args);
+     push_front(args);
+     for(int i = 0; i < args; i++)
+        push_front(va_arg(ap, int));
+     
+     va_end(ap);
+                   
+} 
+
 size_t LinkedList::size() 
 {
     if (head == nullptr) return 0;

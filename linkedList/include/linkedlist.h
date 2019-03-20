@@ -5,6 +5,8 @@
 
 #include "node.h"
 #include "iterator.h"
+#include <stdarg.h>
+#include <iostream>
 
 /* Inspired from: https://en.cppreference.com/w/cpp/container/list */
 
@@ -17,6 +19,7 @@ class LinkedList
         void createFirstNode(Node *newNode);
     public:
         LinkedList() {}
+        LinkedList(int args, ...);
         ~LinkedList() {while(head != nullptr) pop_back();}
         //Element acces
         int front() {return *iterator.end(); }

@@ -7,6 +7,5 @@ struct Node
     struct Node *next;
 };
 
-
 #endif
 
