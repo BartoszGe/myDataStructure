@@ -24,5 +24,6 @@ def build(bld):
         use=['PTHREAD'])
 
     bld.recurse('linkedList')
+    bld.recurse('stack')
 
 
