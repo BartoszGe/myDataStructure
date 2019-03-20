@@ -14,14 +14,13 @@ def build(bld):
         source=src,
         target='linkedlist',
         includes=['include'],
-        export_includes=['linkedlist'])
-
-    bld.program(
-        target='linkedlist',
-        source=src,
-        includes=[ 'include' ],
         export_includes=['include'])
-        
+
+    # bld.program(
+        # target='linkedlist',
+        # source=src,
+        # includes=[ 'include' ],
+        # export_includes=['include'])
 
     bld.recurse('test')
 
