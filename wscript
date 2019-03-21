@@ -14,8 +14,8 @@ def options(opt):
     opt.load('compiler_cxx' )
 
 def configure(conf):
-    # conf.env.CXXFLAGS = [ '-std=c++0x', '-stdlib=libc++' ]
-    # conf.env.LINKFLAGS = [ '-std=c++0x', '-stdlib=libc++' ]
+    conf.env.LINKFLAGS = ['-fsanitize=address']
+    conf.env.CXXFLAGS = ['-fsanitize=address']
     conf.load('compiler_cxx')
     conf.check_cxx(lib='pthread')
 
