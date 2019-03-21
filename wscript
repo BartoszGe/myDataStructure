@@ -15,7 +15,6 @@ def options(opt):
 
 def configure(conf):
     conf.env.LINKFLAGS = ['-fsanitize=address']
-    conf.env.CXXFLAGS = ['-fsanitize=address']
     conf.load('compiler_cxx')
     conf.check_cxx(lib='pthread')
 
