@@ -14,35 +14,21 @@ Node * createNode(int data)
 
 TEST(beginTest, iterator)
 {
-
+    Node *newNode = createNode(1);
     Iterator iterator;
-    iterator = createNode(1);
+    iterator = newNode;
     EXPECT_EQ(*iterator.begin(), 1);
-
-    iterator = createNode(2);
-    EXPECT_EQ(*iterator.begin(), 2);
+    delete newNode;
+    
 }
 
 
 TEST(endTest, iterator)
 {
+    Node *newNode = createNode(32452353);
     Iterator iterator;
-    iterator = createNode(1);
-    EXPECT_EQ(*iterator.end(), 1);
-
-    iterator = createNode(2);
-    EXPECT_EQ(*iterator.end(), 2);
+    iterator = newNode;
+    EXPECT_EQ(*iterator.end(), 32452353);
+    delete newNode;
 }
 
-TEST(operatorTest, iterator)
-{
-    Node *head = createNode(1);
-    Iterator iterator;
-    iterator = head;
-    EXPECT_EQ(*iterator.begin(), 1);
-
-    Node *newNode = createNode(2);
-    head->next = newNode;
-    ++iterator;
-    EXPECT_EQ(*iterator.begin(), 2);
-}

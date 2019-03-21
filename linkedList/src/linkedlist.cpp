@@ -1,6 +1,14 @@
 #include "linkedlist.h"
 #include <iostream>
 
+Node *LinkedList::createNewNode(const int data)
+{
+    Node *newNode = new Node;
+    newNode->data = data;
+    newNode->next = nullptr;
+    return newNode;
+}
+
 LinkedList::LinkedList(int args, ...)
 {
      va_list ap;
@@ -26,20 +34,10 @@ size_t LinkedList::size()
     return size;
 }
 
-Node *createNewNode(const int data)
-{
-    Node *newNode = new Node;
-    newNode->data = data;
-    newNode->next = nullptr;
-    return newNode;
-}
-
 void LinkedList::push_back(const int data)
 {
     Node *newNode = createNewNode(data);
-
     if(!empty())newNode->next = head;
-
     head = newNode;
     iterator = head;
 }
@@ -47,8 +45,8 @@ void LinkedList::push_back(const int data)
 void LinkedList::pop_back()
 {
     if(empty()) return;
-    if(size()==1)
-    {
+    if(size()==1) {
+        delete head;
         head=nullptr;
         return;
     }
@@ -63,8 +61,7 @@ void LinkedList::push_front(const int data)
 {
     Node *newNode = createNewNode(data);
     
-    if(empty()) 
-    {
+    if(empty()) {
         head = newNode;
         iterator = head;
         return;
@@ -80,8 +77,8 @@ void LinkedList::push_front(const int data)
 void LinkedList::pop_front()
 {
     if(empty()) return;
-    if(size()==1) 
-    {
+    if(size()==1) {
+        delete head;
         head=nullptr;
         return;
     }
@@ -89,8 +86,7 @@ void LinkedList::pop_front()
     Node *beforeLastNode;
     Node *lastNode = head;
     
-    for(; lastNode->next!=nullptr ; lastNode=lastNode->next)
-    {
+    for(; lastNode->next!=nullptr ; lastNode=lastNode->next) {
         beforeLastNode = lastNode;
     }
     delete lastNode;
