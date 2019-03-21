@@ -4,6 +4,7 @@
   * ./bootstrap.sh
   
 2. Configure the project using
+
   Use clang for debug: 
   * CXX=clang++ ./waf configure 
   
