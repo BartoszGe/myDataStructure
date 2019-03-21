@@ -20,7 +20,7 @@ class LinkedList
     public:
         LinkedList() {}
         LinkedList(int args, ...);
-        ~LinkedList() {while(head != nullptr) pop_back();}
+        //~LinkedList() {while(head != nullptr) pop_back();}
         //Element acces
         int front() {return *iterator.end(); }
         int back() {return *iterator.begin(); }

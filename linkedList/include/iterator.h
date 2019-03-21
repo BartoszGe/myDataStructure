@@ -16,7 +16,7 @@ class Iterator
         Iterator begin();
         Iterator end();
         
-        Node operator=(const Node *node) {head = node; iterator = head;}
+        void operator=(const Node *node) {head = node; iterator = head;}
         int operator*() {return iterator->data;}
         void operator++() {iterator = iterator->next;}
         void operator++(int) {iterator = iterator->next;}

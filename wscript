@@ -7,10 +7,15 @@ top = '.'
 
 out = 'build'
 
+from waflib.Tools.compiler_cxx import cxx_compiler
+cxx_compiler['linux'] = ['gxx', 'clangxx']
+
 def options(opt):
     opt.load('compiler_cxx' )
 
 def configure(conf):
+    # conf.env.CXXFLAGS = [ '-std=c++0x', '-stdlib=libc++' ]
+    # conf.env.LINKFLAGS = [ '-std=c++0x', '-stdlib=libc++' ]
     conf.load('compiler_cxx')
     conf.check_cxx(lib='pthread')
 
