@@ -3,11 +3,11 @@
 1. To download waf builder run bootstrap.sh:
   * ./bootstrap.sh
   
-2. Configure the project usin:g<br/>
+2. Configure the project usin:<br/>
   Use clang for debug: 
-  * CXX=clang++ ./waf configure 
+  * CXX=clang++ ./waf configure<br/>
   
-  Use gcc: 
+  Use gcc:
   * ./waf configure
 
 3. Build the project using:
