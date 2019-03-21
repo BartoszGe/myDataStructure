@@ -1,6 +1,14 @@
 #include "stack.h"
 #include <iostream>
 
+Node *Stack::createNode(const int data)
+{
+    Node *newNode = new Node;
+    newNode->data = data;
+    newNode->next = nullptr;
+    return newNode;
+}
+
 Stack::Stack(int args, ...)
 {
      va_list ap;
@@ -26,17 +34,10 @@ size_t Stack::size()
     return size;
 }
 
-Node *createNewNode(const int data)
-{
-    Node *newNode = new Node;
-    newNode->data = data;
-    newNode->next = nullptr;
-    return newNode;
-}
 
 void Stack::push(const int data)
 {
-    Node *newNode = createNewNode(data);
+    Node *newNode = createNode(data);
     if(empty()) {
         delete head;
         head = newNode;
@@ -49,8 +50,7 @@ void Stack::push(const int data)
 void Stack::pop()
 {
     if(empty()) return;
-    if(size()==1)
-    {
+    if(size()==1) {
         delete head;
         head=nullptr;
         return;

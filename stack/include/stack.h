@@ -11,8 +11,9 @@ class Stack
 {  
     private:
         Node *head = nullptr;
-
-        void createFirstNode(Node *newNode);
+    
+        Node* createNode(const int data);
+    
     public:
         Stack() {}
         Stack(int args, ...);
