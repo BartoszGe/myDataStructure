@@ -38,6 +38,7 @@ void Stack::push(const int data)
 {
     Node *newNode = createNewNode(data);
     if(empty()) {
+        delete head;
         head = newNode;
         return;
     } 
@@ -50,6 +51,7 @@ void Stack::pop()
     if(empty()) return;
     if(size()==1)
     {
+        delete head;
         head=nullptr;
         return;
     }
