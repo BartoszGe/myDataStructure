@@ -2,10 +2,10 @@
 
 1. Configure the project using:
   
-  a)Using clang
+  * Using clang
   CXX=clang++ ./waf configure
   
-  b)Using gcc
+  * Using gcc
   ./waf configure
 
 2. Build the project using:
