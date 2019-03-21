@@ -1,10 +1,10 @@
 # myDataStructure
 
-### 1. To download waf builder run bootstrap.sh:
+### 1. To download waf builder:
 ```
 ./bootstrap.sh
 ```
-### 2. Configure the project usin:<br/>
+### 2. Configure project:<br/>
   * clang for debug:<br/>
 ```
 CXX=clang++ ./waf configure
@@ -14,7 +14,7 @@ CXX=clang++ ./waf configure
 ./waf configure
 ```
 
-### 3. Build project using:
+### 3. Build project:
 ``` 
 ./waf build
 ```
