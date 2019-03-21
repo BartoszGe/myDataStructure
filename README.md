@@ -1,6 +1,6 @@
 # myDataStructure
 
-1. To download waf builder for this project open bootstrap.sh script:
+1. To download waf builder run bootstrap.sh:
   * ./bootstrap.sh
   
 2. Configure the project using
