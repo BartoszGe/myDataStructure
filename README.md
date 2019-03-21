@@ -10,5 +10,5 @@
 
 2. Build the project using:
   
-  ./waf build
+  * ./waf build
   
