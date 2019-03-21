@@ -2,11 +2,9 @@
 
 1. Configure the project using:
   
-  * Using clang: \n
-  \tCXX=clang++ ./waf configure
+  * Using clang: CXX=clang++ ./waf configure
   
-  * Using gcc: \n
-  \t./waf configure
+  * Using gcc: ./waf configure
 
 2. Build the project using:
   
