@@ -7,13 +7,13 @@
 '''
 
 ### 2. Configure the project usin:<br/>
-Use clang for debug:<br/>
+* Use clang for debug:<br/>
 
 '''
 CXX=clang++ ./waf configure
 '''
 
-Use gcc:<br/>
+* Use gcc:<br/>
 
 '''
 ./waf configure
