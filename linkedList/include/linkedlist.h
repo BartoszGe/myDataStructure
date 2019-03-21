@@ -16,7 +16,7 @@ class LinkedList
         Node *head = nullptr;
         Iterator iterator;
 
-        void createFirstNode(Node *newNode);
+        Node* createNewNode(const int data);
     public:
         LinkedList() {}
         LinkedList(int args, ...);
