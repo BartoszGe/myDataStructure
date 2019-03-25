@@ -4,105 +4,51 @@
 #include "queue.h"
 
 
-//TEST(constructor, list)
-//{
-    //LinkedList myList(3, 4, 0, 6);
-    //EXPECT_EQ(3, myList.back());
-    //EXPECT_EQ(6, myList.front());
-//}
+TEST(constructor, queue)
+{
+    Queue myQueue(3, 4, 0, 6); 
+    EXPECT_EQ(3, myQueue.front());
+}
 
-//TEST(push_backTest, list)
-//{
-    //LinkedList myList;
-    //myList.push_back(1);
-    //EXPECT_EQ(1, myList.size());
-    //EXPECT_EQ(1, myList.back());
-    //EXPECT_EQ(1, myList.front());
+TEST(pushTest,queue)
+{
+    Queue myQueue;
+    myQueue.push(1);
+    EXPECT_EQ(1, myQueue.size());
+    EXPECT_EQ(1, myQueue.front());
+    EXPECT_EQ(1, myQueue.back());
     
-    //myList.push_back(2);
-    //myList.push_back(3);
-    //myList.push_back(4);
-    //myList.push_back(5);
+    myQueue.push(2);
+    myQueue.push(3);
+    myQueue.push(4);
+    myQueue.push(5);
 
-    //EXPECT_EQ(5, myList.size());
-    //EXPECT_EQ(5, myList.back());
-    //EXPECT_EQ(1, myList.front());
+    EXPECT_EQ(5, myQueue.size());
+    EXPECT_EQ(1, myQueue.front());
+    EXPECT_EQ(5, myQueue.back());
+}
 
-    //myList.push_back(6);
+TEST(popTest, queue)
+{
+    Queue myQueue;
+    myQueue.push(1);
+    myQueue.pop();
+    myQueue.push(1);
+    myQueue.push(2);
+    myQueue.pop();
 
-    //EXPECT_EQ(6, myList.size());
-    //EXPECT_EQ(6, myList.back());
-    //EXPECT_EQ(1, myList.front());
-//}
-
-//TEST(pop_backTest, list)
-//{
-    //LinkedList myList;
-    //myList.push_back(1);
-    //myList.pop_back();
-    //myList.push_back(1);
-    //myList.push_back(2);
-    //myList.pop_back();
-
-    //EXPECT_EQ(1, myList.size());
-    //EXPECT_EQ(1, myList.back());
-    //EXPECT_EQ(1, myList.front());
+    EXPECT_EQ(1, myQueue.size());
+    EXPECT_EQ(2, myQueue.front());
+    EXPECT_EQ(2, myQueue.back());
     
-    //myList.push_back(3);
-    //myList.push_back(4);
-    //myList.push_back(5);
+    myQueue.push(3);
+    myQueue.push(4);
+    myQueue.push(5);
     
-    //myList.pop_back();
-    //myList.pop_back();
+    myQueue.pop();
+    myQueue.pop();
 
-    //EXPECT_EQ(2, myList.size());
-    //EXPECT_EQ(3, myList.back());
-    //EXPECT_EQ(1, myList.front());
-//}
-
-//TEST(push_frontTest, list)
-//{
-    //LinkedList myList;
-    //myList.push_front(1);
-    //myList.push_front(2);
-    //myList.push_front(3);
-    //myList.push_front(4);
-    //myList.push_front(5);
-
-    //EXPECT_EQ(5, myList.size());
-    //EXPECT_EQ(1, myList.back());
-    //EXPECT_EQ(5, myList.front());
-
-    //myList.push_front(6);
-
-    //EXPECT_EQ(6, myList.size());
-    //EXPECT_EQ(1, myList.back());
-    //EXPECT_EQ(6, myList.front());
-//}
-
-//TEST(pop_frontTest, list)
-//{
-    //LinkedList myList;
-
-    //myList.push_front(1);
-    //myList.pop_front();
-    //myList.push_front(1);
-    //myList.push_front(2);
-    //myList.pop_front();
-
-    //EXPECT_EQ(1, myList.size());
-    //EXPECT_EQ(1, myList.back());
-    //EXPECT_EQ(1, myList.front());
-    
-    //myList.push_front(3);
-    //myList.push_front(4);
-    //myList.push_front(5);
-    
-    //myList.pop_front();
-    //myList.pop_front();
-
-    //EXPECT_EQ(2, myList.size());
-    //EXPECT_EQ(1, myList.back());
-    //EXPECT_EQ(3, myList.front());
-//}
-
+    EXPECT_EQ(2, myQueue.size());
+    EXPECT_EQ(4, myQueue.front());
+    EXPECT_EQ(5, myQueue.back());
+}

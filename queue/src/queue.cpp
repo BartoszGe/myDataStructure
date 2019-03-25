@@ -21,6 +21,13 @@ Queue::Queue(int args, ...)
                    
 } 
 
+int Queue::front() 
+{   
+     Node *lastNode = head;
+     for(; lastNode->next!=nullptr ; lastNode=lastNode->next);
+     return lastNode->data;
+}
+
 size_t Queue::size() 
 {
     if (head == nullptr) return 0;
