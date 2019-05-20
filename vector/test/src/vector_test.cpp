@@ -3,14 +3,32 @@
 #include <cstdint>
 #include "vector.h"
 
+TEST(constructor, vector)
+{
+    Vector<int> firstVector;                                            // empty vector of ints
+    Vector<int> secondVector (5);
+    Vector<int> thirdVector (4,100);                                    // four ints with value 100
+    // Vector<int> fourthVector (thirdVector.begin(),thirdVector.end());   // iterating through second
+    Vector<int> sixthVector (thirdVector);                             // a copy of third
 
-// TEST(constructor, list)
-// {
-//     Vector myVector(3, 4, 0, 6);
-//     EXPECT_EQ(6, myVector.top());
-// }
+    EXPECT_EQ(100, thirdVector.begin());
+    EXPECT_EQ(100, thirdVector.end());
+    // EXPECT_EQ(100, fourthVector.begin());
+    // EXPECT_EQ(100, fourthVector.end());
+    EXPECT_EQ(100, sixthVector.begin());
+    EXPECT_EQ(100, sixthVector.end());
+    
+//   // the iterator constructor can also be used to construct from arrays:
+//   int myints[] = {16,2,77,29};
+//   std::vector<int> fifth (myints, myints + sizeof(myints) / sizeof(int) );
 
-// TEST(pushTest,list)
+//   std::cout << "The contents of fifth are:";
+//   for (std::vector<int>::iterator it = fifth.begin(); it != fifth.end(); ++it)
+//     std::cout << ' ' << *it;
+//   std::cout << '\n';
+}
+
+// TEST(pushTest,vector)
 // {
 //     Vector myVector;
 //     myVector.push(1);

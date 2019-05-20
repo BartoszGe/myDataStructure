@@ -13,7 +13,7 @@ def build(bld):
         features='cxx',
         source=src,
         target='vector',
-        includes=['include'],
+        includes=['include', 'src'],
         export_includes=['include'])
 
     bld.recurse('test')

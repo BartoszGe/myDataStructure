@@ -1,7 +1,9 @@
 #waf 
-/waf/
+/waf
 .waf*
 .lock-waf_linux2_build
+
+#Visual Studio Code
 .vscode
 
 #build
