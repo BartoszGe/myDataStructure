@@ -1,0 +1,21 @@
+#ifndef ITERATOR_H
+#define ITERATOR_H
+
+class Iterator
+{
+
+    // public: 
+    //     Iterator() : head(nullptr), iterator(nullptr) {};
+    //     //Iterator(const Node *head): head(head) {iterator = head;}
+        
+    //     Iterator begin();
+    //     Iterator end();
+        
+    //     void operator=(const Node *node) {head = node; iterator = head;}
+    //     int operator*() {return iterator->data;}
+    //     void operator++() {iterator = iterator->next;}
+    //     void operator++(int) {iterator = iterator->next;}
+};
+
+#endif
+

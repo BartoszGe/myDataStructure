@@ -2,6 +2,7 @@
 /waf/
 .waf*
 .lock-waf_linux2_build
+.vscode
 
 #build
 /build/

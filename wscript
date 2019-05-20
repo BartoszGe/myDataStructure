@@ -29,5 +29,6 @@ def build(bld):
 
     bld.recurse('linkedList')
     bld.recurse('stack')
+    bld.recurse('vector')
 
 
