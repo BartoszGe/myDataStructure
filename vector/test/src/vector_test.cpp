@@ -55,36 +55,52 @@ TEST(constructorChar, vector)
 TEST(reserve, vector)
 {
     std::vector<int> stdVector;
-    for (int i=1;i<10;i++) stdVector.push_back(i);
+    Vector<int> myVector;  
 
-    stdVector.reserve(17);
-    std::cout << "stdVector contains:";
-    for (int i=0;i<stdVector.size();i++)
-        std::cout << ' ' << stdVector[i];
+    for (int i=1;i<10;i++) {
+        stdVector.push_back(i);
+        myVector.push_back(i);
+    }
 
-    std::cout << "\ncapacity(): " << stdVector.capacity();
-    std::cout << "\nsize():" << stdVector.size();
+    for (int idx=0;idx<stdVector.size(); idx++)
+        EXPECT_EQ(stdVector[idx], myVector[idx]);
 
+    EXPECT_EQ(stdVector.capacity(), myVector.capacity());
+    EXPECT_EQ(stdVector.size(), myVector.size());
 
-    std::cout << "\nmyVector contains:";
-    Vector<int> myVector (10, 1);   
-    // Vector<int> myVector;
-    // for (int i=1;i<10;i++) myVector.push_back(i);
+    stdVector.reserve(12);
+    myVector.reserve(12);
 
-    for (int i=0;i<myVector.size();i++)
-        std::cout << ' ' << myVector[i];
-    std::cout << "\ncapacity(): " << myVector.capacity();
-    std::cout << "\nsize():" << myVector.size();
+    for (int idx=0;idx<stdVector.size(); idx++)
+        EXPECT_EQ(stdVector[idx], myVector[idx]);
 
-    myVector.reserve(15);
+    EXPECT_EQ(stdVector.capacity(), myVector.capacity());
+    EXPECT_EQ(stdVector.size(), myVector.size());
 
-    std::cout << "\nNow myVector contains:";
-    for (int i=0;i<myVector.size();i++)
-        std::cout << ' ' << myVector[i];
-    std::cout << "\ncapacity(): " << myVector.capacity();
-    std::cout << "\nsize():" << myVector.size();
+    for (int i=1;i<120;i++) {
+        stdVector.push_back(i);
+        myVector.push_back(i);
+    }
+    for (int idx=0;idx<stdVector.size(); idx++)
+        EXPECT_EQ(stdVector[idx], myVector[idx]);
+
+    EXPECT_EQ(stdVector.capacity(), myVector.capacity());
+    EXPECT_EQ(stdVector.size(), myVector.size());
+
 }
 
+TEST(resize, vector)
+{
+    std::vector<int> stdVector;
+    Vector<int> myVector;  
+
+    for (int i=1;i<10;i++) {
+        stdVector.push_back(i);
+        myVector.push_back(i);
+    }
+
+    
+}
 
 // TEST(pushTest,vector)
 // {
