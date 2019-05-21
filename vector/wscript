@@ -5,16 +5,13 @@ def options(opt):
 
 def configure(conf):
     pass
+    # conf.env.vector = ['include']
 
 def build(bld):
-    src = bld.path.ant_glob( 'src/*.cpp' )
-
-    bld.stlib(
-        features='cxx',
-        source=src,
-        target='vector',
-        includes=['include', 'src'],
-        export_includes=['include'])
+    bld(
+        includes = 'include', 
+        export_includes='include', 
+        name='vector')
 
     bld.recurse('test')
 
