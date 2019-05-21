@@ -12,20 +12,18 @@ class Vector
         T *buffer = nullptr;
 
     public:
-        //Constructors
+        //Constructors & Destructor
         Vector();
         Vector(size_t size);
         Vector(size_t size,const T data);
         Vector(size_t size, const Vector<T> &referenceVector);
         Vector(T *begin, T *end);
         Vector(const Vector<T> & vector);
-
-        //Destructor
         ~Vector();
 
         // Iterators
-        T begin() {return buffer[0];}
-        T end() {return buffer[mySize -1];}
+        // T begin() {return buffer[0];}
+        // T end() {return buffer[mySize -1];}
 
         // Capacity
         size_t size() const {return mySize;}
@@ -35,10 +33,14 @@ class Vector
         void resize (size_t size, const T& data = 0);
         void reserve (size_t size);
 
+       //Element access
+        T &operator[](size_t idx) {return buffer[idx];}
+        T front() {return buffer[0];}
+        T back() {return buffer[mySize -1];}
         // Modifiers
         void push_back (const T& data);
 
-        T &operator[](size_t idx) {return buffer[idx];}
+ 
 };
 
 template <class T>
@@ -104,7 +106,10 @@ Vector<T>::~Vector()
 template <class T>
 void Vector<T>::resize(size_t size, const T& data) 
 {
-    
+    if(size > mySize)
+        for(size_t idx = mySize; idx < size; ++idx)
+            buffer[idx] = data;
+    mySize = size;
 }
 
 template <class T>
