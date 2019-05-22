@@ -52,6 +52,45 @@ TEST(constructorChar, vector)
     //     EXPECT_EQ(myints[idx++], *it);
 }
 
+TEST(pushAndPopBack, vector)
+{
+    std::vector <int> stdVector;
+    Vector<int> myVector;   
+    stdVector.push_back( 5 );
+    myVector.push_back( 5 );
+    stdVector.push_back( 2 );
+    myVector.push_back( 2 );
+    stdVector.push_back( 3 );
+    myVector.push_back( 3 );
+    stdVector.push_back( 1 );
+    myVector.push_back( 1 );
+
+    EXPECT_EQ(stdVector.front(), myVector.front());
+    EXPECT_EQ(stdVector.back(), myVector.back());
+    EXPECT_EQ(stdVector.size(), myVector.size());
+
+    stdVector.pop_back();
+    myVector.pop_back();
+
+    EXPECT_EQ(stdVector.front(), myVector.front());
+    EXPECT_EQ(stdVector.back(), myVector.back());
+    EXPECT_EQ(stdVector.size(), myVector.size());
+
+    stdVector.pop_back();
+    myVector.pop_back();
+    stdVector.pop_back();
+    myVector.pop_back();
+
+    EXPECT_EQ(stdVector.front(), myVector.front());
+    EXPECT_EQ(stdVector.back(), myVector.back());
+    EXPECT_EQ(stdVector.size(), myVector.size());
+
+    stdVector.pop_back();
+    myVector.pop_back();
+
+    EXPECT_EQ(stdVector.size(), myVector.size());
+}
+
 TEST(reserve, vector)
 {
     std::vector<int> stdVector;

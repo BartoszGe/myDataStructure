@@ -28,7 +28,8 @@ def build(bld):
         use=['PTHREAD'])
 
     bld.recurse('linkedList')
-    bld.recurse('stack')
     bld.recurse('vector')
+    bld.recurse('stack')
+    
 
 

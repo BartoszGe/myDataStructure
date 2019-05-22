@@ -5,7 +5,6 @@ def options(opt):
 
 def configure(conf):
     pass
-    # conf.env.vector = ['include']
 
 def build(bld):
     bld(
