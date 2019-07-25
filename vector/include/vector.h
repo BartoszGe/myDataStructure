@@ -1,7 +1,7 @@
 #ifndef VECTOR_H
 #define VECTOR_H
 
-/* Inspired from: https://en.cppreference.com/w/cpp/container/vector */
+/* Inspired: https://en.cppreference.com/w/cpp/container/vector */
 
 template <typename T>
 class Vector
@@ -16,7 +16,7 @@ class Vector
         Vector();
         Vector(size_t size);
         Vector(size_t size,const T data);
-        Vector(size_t size, const Vector<T> &referenceVector);
+        Vector(size_t size, const Vector<T> &vector);
         Vector(T *begin, T *end);
         Vector(const Vector<T> & vector);
         ~Vector();
@@ -28,19 +28,20 @@ class Vector
         // Capacity
         size_t size() const {return mySize;}
         size_t resize();
-        size_t capacity() const  {return myCapacity;}
-        bool empty() const {return buffer == nullptr ?true :false;}
+        size_t capacity() const {return myCapacity;}
+        bool empty() const {return mySize == 0 ?true :false;}
         void resize (size_t size, const T& data = 0);
         void reserve (size_t size);
 
-       //Element access
+        // Element access
         T &operator[](size_t idx) {return buffer[idx];}
-        T front() {return buffer[0];}
-        T back() {return buffer[mySize -1];}
+        T front() const {return buffer[0];}
+        T back() const {return buffer[mySize -1];}
+
         // Modifiers
         void push_back (const T& data);
+        void pop_back ();
 
- 
 };
 
 template <class T>
@@ -70,13 +71,13 @@ Vector<T>::Vector(size_t size, const T data)
 }
 
 template <class T>
-Vector<T>::Vector(size_t size, const Vector<T> &referenceVector)
+Vector<T>::Vector(size_t size, const Vector<T> &vector)
 {
     mySize = size;
     myCapacity = size;
     buffer = new T[size];
     for(size_t idx = 0; idx < size; ++idx)
-        buffer[idx] = referenceVector.buffer[idx];
+        buffer[idx] = vector.buffer[idx];
 }
 
 template <class T>
@@ -124,7 +125,7 @@ void Vector<T>::reserve(size_t capacity)
     
     delete []buffer;
     myCapacity = capacity;
-    if(mySize>myCapacity) 
+    if(mySize > myCapacity) 
         mySize = myCapacity;
     buffer = newBuffer;
 }
@@ -143,6 +144,14 @@ void Vector<T>::push_back(const T& data)
     if(mySize == myCapacity)
         reserve(findClosestMultipleOfTwo(myCapacity));
     buffer[mySize++] = data;
+}
+
+template <class T>
+void Vector<T>::pop_back()
+{
+    mySize--;
+    if(mySize==0)
+        delete []buffer;
 }
 
 #endif
