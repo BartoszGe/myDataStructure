@@ -9,43 +9,54 @@ template <typename T>
 class Stack
 {  
     private:
-        Vector<T> *myVector;
-
+        Vector<T> *vector = nullptr;
     public:
         // Constructors & Destructor
         Stack();
         Stack(const Stack<T> &stack);
         // Stack(int args, ...);
-        ~Stack() {delete myVector;}
+        ~Stack();
 
         // //Element acces
-        T top() const {return myVector->back();}
+        T &top() const {return vector->back();}
 
         // //Capacity
-        bool empty() const {return myVector->empty();}
-        size_t size() const {return myVector->size();}
+        bool empty() const {return vector->empty();}
+        size_t size() const {return vector->size();}
         
         // //Modifiers               
-        void push(const T& data) {myVector->push_back(data);};
-        void pop() {myVector->pop_back();}
+        void push(const T& data) {vector->push_back(data);};
+        void pop() {vector->pop_back();}
         // void swap();
 };
 
 template <class T>
 Stack<T>::Stack()
 {
+    if(vector!=nullptr) {
+        this->~Stack();
+    }
+
     Vector<T> *newVector = new Vector<T>();
-    myVector = newVector;
+    vector = newVector;
 }
 
 template <class T>
 Stack<T>::Stack(const Stack<T> &stack)
 {
-    Vector<T> *newVector = new Vector<T>(stack.size());
-    // for(; !tempStack.empty(); tempStack.pop())
-    //     // newVector->push_back(tempStack.top());
-    //     std::cout << tempStack.top() << " ; " << stack.top() << std::endl;
-    myVector = newVector;
+    if(vector!=nullptr) {
+        this->~Stack();
+    }
+
+    Vector<T> *newVector = new Vector<T>(*stack.vector);
+    vector = newVector;
+}
+
+template <class T>
+Stack<T>::~Stack()
+{
+    delete vector;
+    vector = nullptr;
 }
 
 #endif

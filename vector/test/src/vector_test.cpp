@@ -56,34 +56,28 @@ TEST(pushAndPopBack, vector)
 {
     std::vector <int> stdVector;
     Vector<int> myVector;   
-    stdVector.push_back( 5 );
-    myVector.push_back( 5 );
-    stdVector.push_back( 2 );
-    myVector.push_back( 2 );
-    stdVector.push_back( 3 );
-    myVector.push_back( 3 );
-    stdVector.push_back( 1 );
-    myVector.push_back( 1 );
+    stdVector.push_back( 0 );
+    myVector.push_back( 0 );
+
+    for (size_t i=1; i<100; i++ ) {
+        stdVector.push_back( i );
+        myVector.push_back( i );
+    }
 
     EXPECT_EQ(stdVector.front(), myVector.front());
     EXPECT_EQ(stdVector.back(), myVector.back());
     EXPECT_EQ(stdVector.size(), myVector.size());
+    EXPECT_EQ(stdVector.capacity(), myVector.capacity());
 
-    stdVector.pop_back();
-    myVector.pop_back();
-
-    EXPECT_EQ(stdVector.front(), myVector.front());
-    EXPECT_EQ(stdVector.back(), myVector.back());
-    EXPECT_EQ(stdVector.size(), myVector.size());
-
-    stdVector.pop_back();
-    myVector.pop_back();
-    stdVector.pop_back();
-    myVector.pop_back();
+    for(size_t i=1; i<100; i++ ) {
+        stdVector.pop_back();
+        myVector.pop_back();
+    }
 
     EXPECT_EQ(stdVector.front(), myVector.front());
     EXPECT_EQ(stdVector.back(), myVector.back());
     EXPECT_EQ(stdVector.size(), myVector.size());
+    EXPECT_EQ(stdVector.capacity(), myVector.capacity());
 
     stdVector.pop_back();
     myVector.pop_back();
