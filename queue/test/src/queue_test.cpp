@@ -12,20 +12,21 @@ TEST(constructor, list)
     Queue<int> firstMyQueue;
 
     firstStdQueue.push(5);
-    firstMyQueue.push(5);
     firstStdQueue.push(4);
+    
+    firstMyQueue.push(5);
     firstMyQueue.push(4);
 
     EXPECT_EQ(firstStdQueue.size(), firstMyQueue.size());
     EXPECT_EQ(firstStdQueue.front(), firstMyQueue.front());
     EXPECT_EQ(firstStdQueue.back(), firstMyQueue.back());
 
-    std::queue<int> secondStdQueue(firstStdQueue);
-    Queue<int> secondMyQueue(firstMyQueue);
+    // std::queue<int> secondStdQueue(firstStdQueue);
+    // Queue<int> secondMyQueue(firstMyQueue);
 
-    EXPECT_EQ(firstStdQueue.size(), firstMyQueue.size());
-    EXPECT_EQ(firstStdQueue.front(), firstMyQueue.front());
-    EXPECT_EQ(firstStdQueue.back(), firstMyQueue.back());
+    // EXPECT_EQ(firstStdQueue.size(), firstMyQueue.size());
+    // EXPECT_EQ(firstStdQueue.front(), firstMyQueue.front());
+    // EXPECT_EQ(firstStdQueue.back(), firstMyQueue.back());
 
     // std::deque<int> stdDeque {3, 1, 4, 1, 5};
     // std::queue<int> thirdStdQueue(deq);

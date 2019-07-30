@@ -20,11 +20,11 @@ class LinkedList
     public:
         LinkedList() {}
         LinkedList(T args, ...);
-
+        // LinkedList(const LinkedList<T> & linkedList);
         ~LinkedList() {while(head != nullptr) pop_back();}
         //Element acces
-        T front() {return *iterator.end(); }
-        T back() {return *iterator.begin(); }
+        T front() {return *iterator.end();}
+        T back() {return *iterator.begin();}
 
         //Iterators
         Iterator<T> begin() {return iterator.begin();}
@@ -55,9 +55,9 @@ LinkedList<T>::LinkedList(T args, ...)
 {
      va_list ap;
      va_start(ap, args);
-     push_front(args);
+     push_back(args);
      for(T i = 0; i < args; i++)
-        push_front(va_arg(ap, T));
+        push_back(va_arg(ap, T));
      
      va_end(ap);
                    

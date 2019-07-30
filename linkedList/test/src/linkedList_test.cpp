@@ -26,10 +26,11 @@ TEST(constructor, list)
     std::list<int> firststdList {3, 4, 0, 6};
     EXPECT_EQ(firststdList.back(), firstmyList.back());
     EXPECT_EQ(firststdList.front(), firstmyList.front());
-    LinkedList<int> secondMyList (firstmyList);
-    std::list<int> secondStdList (firststdList);
-    EXPECT_EQ(secondStdList.back(), secondMyList.back());
-    EXPECT_EQ(secondStdList.front(), secondMyList.front());
+
+    // LinkedList<int> secondMyList (firstmyList);
+    // std::list<int> secondStdList (firststdList);
+    // EXPECT_EQ(secondStdList.back(), secondMyList.back());
+    // EXPECT_EQ(secondStdList.front(), secondMyList.front());
 }
 
 TEST(push_backTest, list)
