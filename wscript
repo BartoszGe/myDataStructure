@@ -30,6 +30,6 @@ def build(bld):
     bld.recurse('linkedList')
     bld.recurse('vector')
     bld.recurse('stack')
-    
+    bld.recurse('queue')
 
 

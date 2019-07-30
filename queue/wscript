@@ -7,14 +7,10 @@ def configure(conf):
     pass
 
 def build(bld):
-    src = bld.path.ant_glob( 'src/*.cpp' )
-
-    bld.stlib(
-        features='cxx',
-        source=src,
-        target='queue',
-        includes=['include'],
-        export_includes=['include'])
-
+    bld(
+        includes = 'include', 
+        export_includes='include', 
+        name='queue',
+        use='linkedlist')
     bld.recurse('test')
 

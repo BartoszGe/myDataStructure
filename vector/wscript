@@ -11,6 +11,5 @@ def build(bld):
         includes = 'include', 
         export_includes='include', 
         name='vector')
-
     bld.recurse('test')
 

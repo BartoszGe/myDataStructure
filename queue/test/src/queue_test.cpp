@@ -2,53 +2,75 @@
 
 #include <cstdint>
 #include "queue.h"
+#include <queue>
 
+#include <iostream>
 
-TEST(constructor, queue)
-{
-    Queue myQueue(3, 4, 0, 6); 
-    EXPECT_EQ(3, myQueue.front());
+TEST(constructor, list)
+{   
+    std::queue<int> firstStdQueue;
+    Queue<int> firstMyQueue;
+
+    firstStdQueue.push(5);
+    firstStdQueue.push(4);
+    
+    firstMyQueue.push(5);
+    firstMyQueue.push(4);
+
+    EXPECT_EQ(firstStdQueue.size(), firstMyQueue.size());
+    EXPECT_EQ(firstStdQueue.front(), firstMyQueue.front());
+    EXPECT_EQ(firstStdQueue.back(), firstMyQueue.back());
+
+    // std::queue<int> secondStdQueue(firstStdQueue);
+    // Queue<int> secondMyQueue(firstMyQueue);
+
+    // EXPECT_EQ(firstStdQueue.size(), firstMyQueue.size());
+    // EXPECT_EQ(firstStdQueue.front(), firstMyQueue.front());
+    // EXPECT_EQ(firstStdQueue.back(), firstMyQueue.back());
+
+    // std::deque<int> stdDeque {3, 1, 4, 1, 5};
+    // std::queue<int> thirdStdQueue(deq);
+    // Deque<int> myDeque {3, 1, 4, 1, 5};
+    // Queue<int> thirdMyQueue(myDeque);
+    // EXPECT_EQ(thirdStdQueue.size(), thirdMyQueue.size());
+    // EXPECT_EQ(thirdStdQueue.top(), thirdMyQueue.top());
+    
 }
 
 TEST(pushTest,queue)
 {
-    Queue myQueue;
-    myQueue.push(1);
-    EXPECT_EQ(1, myQueue.size());
-    EXPECT_EQ(1, myQueue.front());
-    EXPECT_EQ(1, myQueue.back());
-    
-    myQueue.push(2);
-    myQueue.push(3);
-    myQueue.push(4);
-    myQueue.push(5);
+    std::queue<int> firstStdQueue;
+    Queue<int> firstMyQueue;
+    for (size_t i=1; i<100; i++ ) {
+        firstStdQueue.push( i );
+        firstMyQueue.push( i );
+    }
 
-    EXPECT_EQ(5, myQueue.size());
-    EXPECT_EQ(1, myQueue.front());
-    EXPECT_EQ(5, myQueue.back());
+    EXPECT_EQ(firstStdQueue.size(), firstMyQueue.size());
+    EXPECT_EQ(firstStdQueue.front(), firstMyQueue.front());
+    EXPECT_EQ(firstStdQueue.back(), firstMyQueue.back());
 }
 
 TEST(popTest, queue)
 {
-    Queue myQueue;
-    myQueue.push(1);
-    myQueue.pop();
-    myQueue.push(1);
-    myQueue.push(2);
-    myQueue.pop();
+    std::queue<int> firstStdQueue;
+    Queue<int> firstMyQueue;
+    for (size_t i=1; i<100; i++ ) {
+        firstStdQueue.push( i );
+        firstMyQueue.push( i );
+    }
 
-    EXPECT_EQ(1, myQueue.size());
-    EXPECT_EQ(2, myQueue.front());
-    EXPECT_EQ(2, myQueue.back());
-    
-    myQueue.push(3);
-    myQueue.push(4);
-    myQueue.push(5);
-    
-    myQueue.pop();
-    myQueue.pop();
+    EXPECT_EQ(firstStdQueue.size(), firstMyQueue.size());
+    EXPECT_EQ(firstStdQueue.front(), firstMyQueue.front());
+    EXPECT_EQ(firstStdQueue.back(), firstMyQueue.back());
 
-    EXPECT_EQ(2, myQueue.size());
-    EXPECT_EQ(4, myQueue.front());
-    EXPECT_EQ(5, myQueue.back());
+       for (size_t i=1; i<99; i++ ) {
+        firstStdQueue.pop();
+        firstMyQueue.pop();
+    }
+
+    EXPECT_EQ(firstStdQueue.size(), firstMyQueue.size());
+    EXPECT_EQ(firstStdQueue.front(), firstMyQueue.front());
+    EXPECT_EQ(firstStdQueue.back(), firstMyQueue.back());
 }
+
