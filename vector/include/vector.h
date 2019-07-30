@@ -37,7 +37,6 @@ class Vector
         // Modifiers
         void push_back(const T& data);
         void pop_back();
-
 };
 
 template <class T>
@@ -143,8 +142,6 @@ void Vector<T>::push_back(const T& data)
 {
     if (mySize == myCapacity) {
         reserve (findClosestMultipleOfTwo(myCapacity));
-    } else {
-
     }
     buffer[mySize++] = data;
 }

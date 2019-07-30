@@ -1,9 +1,9 @@
-#ifndef LINKEDLIST_H
-#define LINKEDLIST_H
+#ifndef STACK_H
+#define STACK_H
 
 #include "vector.h"
 
-/* Inspired from: https://en.cppreference.com/w/cpp/container/stack */
+/* Inspired: https://en.cppreference.com/w/cpp/container/stack */
 
 template <typename T>
 class Stack

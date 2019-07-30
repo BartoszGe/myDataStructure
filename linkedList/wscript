@@ -7,20 +7,9 @@ def configure(conf):
     pass
 
 def build(bld):
-    src = bld.path.ant_glob( 'src/*.cpp' )
-
-    bld.stlib(
-        features='cxx',
-        source=src,
-        target='linkedlist',
-        includes=['include'],
-        export_includes=['include'])
-
-    # bld.program(
-        # target='linkedlist',
-        # source=src,
-        # includes=[ 'include' ],
-        # export_includes=['include'])
-
+    bld(
+        includes = 'include', 
+        export_includes='include', 
+        name='linkedlist')
     bld.recurse('test')
 

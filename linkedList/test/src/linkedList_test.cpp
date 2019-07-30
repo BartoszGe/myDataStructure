@@ -2,107 +2,112 @@
 
 #include <cstdint>
 #include "linkedlist.h"
+#include <list>
 
+
+
+
+TEST(emptyConstructor, list)
+{
+    LinkedList<int> myList;
+    std::list<int> stdList;
+
+    myList.push_back(5);
+    stdList.push_back(5);
+    myList.push_back(4);
+    stdList.push_back(4);
+    EXPECT_EQ(myList.back(), myList.back());
+    EXPECT_EQ(myList.front(), myList.front());
+}
 
 TEST(constructor, list)
 {
-    LinkedList myList(3, 4, 0, 6);
-    EXPECT_EQ(3, myList.back());
-    EXPECT_EQ(6, myList.front());
+    LinkedList<int> firstmyList(3, 4, 0, 6);
+    std::list<int> firststdList {3, 4, 0, 6};
+    EXPECT_EQ(firststdList.back(), firstmyList.back());
+    EXPECT_EQ(firststdList.front(), firstmyList.front());
+    LinkedList<int> secondMyList (firstmyList);
+    std::list<int> secondStdList (firststdList);
+    EXPECT_EQ(secondStdList.back(), secondMyList.back());
+    EXPECT_EQ(secondStdList.front(), secondMyList.front());
 }
 
 TEST(push_backTest, list)
 {
-    LinkedList myList;
-    myList.push_back(1);
-    EXPECT_EQ(1, myList.size());
-    EXPECT_EQ(1, myList.back());
-    EXPECT_EQ(1, myList.front());
-    
-    myList.push_back(2);
-    myList.push_back(3);
-    myList.push_back(4);
-    myList.push_back(5);
+    LinkedList<int> myList;
+    std::list<int> stdList;
 
-    EXPECT_EQ(5, myList.size());
-    EXPECT_EQ(5, myList.back());
-    EXPECT_EQ(1, myList.front());
+    for (size_t i=1; i<100; i++ ) {
+        stdList.push_back( i );
+        myList.push_back( i );
+    }
 
-    myList.push_back(6);
-
-    EXPECT_EQ(6, myList.size());
-    EXPECT_EQ(6, myList.back());
-    EXPECT_EQ(1, myList.front());
+    EXPECT_EQ(stdList.back(), myList.back());
+    EXPECT_EQ(stdList.front(), myList.front());
+    EXPECT_EQ(stdList.size(), myList.size());
 }
 
 TEST(pop_backTest, list)
 {
-    LinkedList myList;
-    myList.push_back(1);
-    myList.pop_back();
-    myList.push_back(1);
-    myList.push_back(2);
-    myList.pop_back();
+    LinkedList<int> myList;
+    std::list<int> stdList;
 
-    EXPECT_EQ(1, myList.size());
-    EXPECT_EQ(1, myList.back());
-    EXPECT_EQ(1, myList.front());
+    for (size_t i=1; i<100; i++ ) {
+        stdList.push_back( i );
+        myList.push_back( i );
+    }
     
-    myList.push_back(3);
-    myList.push_back(4);
-    myList.push_back(5);
-    
-    myList.pop_back();
-    myList.pop_back();
+    for (size_t i=1; i<100; i++ ) {
+        stdList.pop_back();
+        myList.pop_back();
+    }
 
-    EXPECT_EQ(2, myList.size());
-    EXPECT_EQ(3, myList.back());
-    EXPECT_EQ(1, myList.front());
+    for (size_t i=1; i<100; i++ ) {
+        stdList.push_back( i );
+        myList.push_back( i );
+    }
+
+    EXPECT_EQ(stdList.back(), myList.back());
+    EXPECT_EQ(stdList.front(), myList.front());
+    EXPECT_EQ(stdList.size(), myList.size());
 }
 
-TEST(push_frontTest, list)
-{
-    LinkedList myList;
-    myList.push_front(1);
-    myList.push_front(2);
-    myList.push_front(3);
-    myList.push_front(4);
-    myList.push_front(5);
+TEST(push_frontTest, list) {
+    LinkedList<int> myList;
+    std::list<int> stdList;
 
-    EXPECT_EQ(5, myList.size());
-    EXPECT_EQ(1, myList.back());
-    EXPECT_EQ(5, myList.front());
+    for (size_t i=1; i<100; i++ ) {
+        stdList.push_front( i );
+        myList.push_front( i );
+    }
 
-    myList.push_front(6);
-
-    EXPECT_EQ(6, myList.size());
-    EXPECT_EQ(1, myList.back());
-    EXPECT_EQ(6, myList.front());
+    EXPECT_EQ(stdList.back(), myList.back());
+    EXPECT_EQ(stdList.front(), myList.front());
+    EXPECT_EQ(stdList.size(), myList.size());
 }
 
 TEST(pop_frontTest, list)
 {
-    LinkedList myList;
+    LinkedList<int> myList;
+    std::list<int> stdList;
 
-    myList.push_front(1);
-    myList.pop_front();
-    myList.push_front(1);
-    myList.push_front(2);
-    myList.pop_front();
-
-    EXPECT_EQ(1, myList.size());
-    EXPECT_EQ(1, myList.back());
-    EXPECT_EQ(1, myList.front());
+    for (size_t i=1; i<100; i++ ) {
+        stdList.push_back( i );
+        myList.push_back( i );
+    }
     
-    myList.push_front(3);
-    myList.push_front(4);
-    myList.push_front(5);
-    
-    myList.pop_front();
-    myList.pop_front();
+    for (size_t i=1; i<100; i++ ) {
+        stdList.pop_front();
+        myList.pop_front();
+    }
 
-    EXPECT_EQ(2, myList.size());
-    EXPECT_EQ(1, myList.back());
-    EXPECT_EQ(3, myList.front());
+    for (size_t i=1; i<100; i++ ) {
+        stdList.push_back( i );
+        myList.push_back( i );
+    }
+
+    EXPECT_EQ(stdList.back(), myList.back());
+    EXPECT_EQ(stdList.front(), myList.front());
+    EXPECT_EQ(stdList.size(), myList.size());
 }
 

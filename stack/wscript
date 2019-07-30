@@ -7,20 +7,10 @@ def configure(conf):
     pass
 
 def build(bld):
-    src = bld.path.ant_glob( 'src/*.cpp' )
-
-    # bld.stlib(
-    #     features='cxx',
-    #     source=src,
-    #     target='stack',
-    #     includes=['include'],
-    #     export_includes=['include'])
-
     bld(
         includes = 'include', 
         export_includes='include', 
         name='stack',
         use='vector')
-
     bld.recurse('test')
 

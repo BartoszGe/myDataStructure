@@ -4,9 +4,10 @@
 #include "iterator.h"
 #include "node.h"
 
-Node * createNode(int data)
+template <class T>
+Node<T> * createNode(T data)
 {
-    Node *newNode = new Node;
+    Node<T> *newNode = new Node<T>;
     newNode->data = data;
     newNode->next = nullptr;
     return newNode;
@@ -14,8 +15,8 @@ Node * createNode(int data)
 
 TEST(beginTest, iterator)
 {
-    Node *newNode = createNode(1);
-    Iterator iterator;
+    Node<int> *newNode = createNode(1);
+    Iterator<int> iterator;
     iterator = newNode;
     EXPECT_EQ(*iterator.begin(), 1);
     delete newNode;
@@ -25,8 +26,8 @@ TEST(beginTest, iterator)
 
 TEST(endTest, iterator)
 {
-    Node *newNode = createNode(32452353);
-    Iterator iterator;
+    Node<int> *newNode = createNode(32452353);
+    Iterator<int> iterator;
     iterator = newNode;
     EXPECT_EQ(*iterator.end(), 32452353);
     delete newNode;
